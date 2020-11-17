@@ -8,6 +8,11 @@ import 'package:sqlite3/src/impl/implementation.dart';
 /// Provides access to `sqlite3` functions, such as opening new databases.
 Sqlite3 sqlite3 = Sqlite3._(open.openSqlite());
 
+void reopen(){
+  assert(sqlite3 == null);
+  sqlite3 = Sqlite3._(open.openSqlite());
+}
+
 /// Provides access to `sqlite3` functions, such as opening new databases.
 class Sqlite3 {
   final Bindings _bindings;
